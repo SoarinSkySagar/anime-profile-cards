@@ -1,0 +1,216 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* GENERAL STYLES */
+html {
+    scroll-behavior: smooth;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+figure {
+    position: relative;
+}
+
+.hoverimg {
+    position: absolute;
+    top: auto;
+    left: auto;
+    display: none;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+body {
+    font-family: "Nunito", sans-serif;
+    font-size: 1.5rem;
+    min-height: 100vh;
+    line-height: 1.5;
+
+    background-color: #475569;
+    background-image: url("img/bg.jpg");
+    display: flex;
+    flex-direction: column;
+}
+
+header, footer {
+    position: sticky;
+    background-color: #1e293b;
+    color: whitesmoke;
+    text-align: center;
+    z-index: 3;
+}
+
+header {
+    top: 0;
+}
+
+nav, footer {
+    background-color: white;
+    padding: 0.5rem;
+    border-bottom: 2px solid black;
+    font-weight: bolder;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+footer {
+    background-color: #1e293b;
+    border-bottom: none;
+}
+
+footer a, footer a:visited {
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+footer a:focus, footer a:hover {
+    color: #ffc107;
+}
+
+nav p {
+    color: #000;
+}
+
+nav:nth-child(even) {
+    align-items: center;
+}
+
+nav a, nav a:visited {
+    color: black;
+}
+
+nav a:hover, nav a:focus {
+    color: hsla(0, 0%, 20%, 0.6);
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+footer {
+    bottom: 0;
+}
+
+/* CARD STYLES */
+
+.card {
+    color: whitesmoke;
+    scroll-margin-top: 8rem;
+    width: min(1005, 350px);
+    background-color: #35393e;
+    border: 7px double gold;
+    border-radius: 15px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card:hover, .card:active {
+    color: #000;
+    background-color: rgb(255, 255, 255);
+    border-color: green;
+}
+
+.card:hover .hoverimg, .card:active .hoverimg{
+    display: inline;
+    border-color: green;
+}
+
+.card figure {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.card img {
+    border: 5px double gold;
+    border-radius: 50%;
+}
+
+.card figcaption {
+    font-weight: bolder;
+    font-size: 2rem;
+    margin: 1rem;
+    text-align: center;
+}
+
+/* MEDIA QUERY FOR SMALL SCREENS */
+@media screen and (min-width: 576px) {
+    main {
+        justify-content: center;
+        flex-flow: row wrap;
+        padding: 1rem;
+    }
+    .card {
+        width: min(100%, 400px);
+    }
+}
+
+/* MEDIA QUERY FOR MEDIUM SCREENS */
+@media screen and (min-width: 768px) {
+    nav {
+        display: none;
+    }
+    .card {
+        width: min(100%, 325px);
+    }
+    .card figure {
+        flex-flow: column-reverse;
+    }
+    .card p {
+        margin-top: 1rem;
+    }
+}
+
+/* MEDIA QUERY FOR LARGE SCREENS */
+@media screen and (min-width: 992px) {
+    .card {
+        width: min(100%, 400px);
+    }
+}
+
+/* MEDIA QUERY FOR XL SCREENS */
+@media screen and (min-width: 1200px) {
+    .card {
+        width: min(calc(33% - 1rem), 500px);
+    }
+}
+
+/* MEDIA QUERY FOR MOBILE LANDSCAPE */
+@media screen and (max-height: 425px) and (min-aspect-ratio: 7/4) {
+    h1 {
+        font-size: 1.5rem;
+    }
+    nav {
+        display: none;
+    }
+    main {
+        flex-flow: row nowrap;
+        justify-content: space-evenly;
+        align-items: stretch;
+    }
+    .card {
+        width: min(calc(33% - 0.25rem), 200px);
+    }
+    .card figcaption, .card p {
+        font-size: 1.25rem;
+    }
+}
